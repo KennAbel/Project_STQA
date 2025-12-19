@@ -12,7 +12,7 @@ login_manager.login_view = 'login' # Kalau belum login, lempar ke sini
 
 # --- DATABASE SEMENTARA (IN-MEMORY) ---
 products_db = [
-    Product("Laptop Gaming", 15000000, 5),
+    Product("Laptop Gaming", 15000000, 50),
     Product("Mouse Wireless", 150000, 100),
 ]
 
