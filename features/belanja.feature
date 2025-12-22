@@ -1,20 +1,29 @@
-Feature: Sistem Belanja Online
-  Sebagai user, saya ingin bisa login dan melihat produk
+Feature: Website Toko Online Lengkap
 
-  Scenario: Login dengan password yang benar
-    Given sistem toko online sudah jalan
+  Background:
+    Given aplikasi toko online berjalan normal
+    And database user dan produk sudah di-reset
+
+  # --- SKENARIO USER ---
+  Scenario: User Login dan Melihat Home
     When user login dengan username "budi" dan password "budi123"
-    Then user harus diarahkan ke halaman home
-    And pesan selamat datang harus muncul
+    Then user harus masuk ke halaman home
+    And pesan "Halo, budi!" harus muncul
 
-  Scenario: Menambah barang ke keranjang
+  Scenario: User Membeli Barang
     Given user sudah login sebagai "budi"
     When user membeli produk "Mouse Wireless"
-    Then total harga di keranjang harus bertambah
+    Then produk "Mouse Wireless" harus ada di halaman keranjang
 
-  Scenario: Menggunakan Voucher Diskon
+  Scenario: User Menggunakan Voucher Diskon
     Given user sudah login sebagai "budi"
-    And keranjang berisi produk "Laptop Gaming"
+    And keranjang user berisi produk "Laptop Gaming"
     When user memasukkan kode voucher "DISKON50"
-    Then potongan harga harus muncul di struk
-    And total harga harus berkurang
+    Then total harga harus terpotong 50 persen
+    And pesan "Voucher berhasil digunakan" harus muncul
+
+  # --- SKENARIO ADMIN ---
+  Scenario: Admin Menambah Produk Baru
+    Given user sudah login sebagai "admin"
+    When admin menambah produk "PlayStation 5" seharga 8000000 stok 10
+    Then produk "PlayStation 5" harus muncul di halaman home

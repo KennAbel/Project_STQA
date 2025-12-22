@@ -32,7 +32,7 @@
                 <td>Rp {{ "{:,}".format(item.product.harga) }}</td>
                 <td>{{ item.qty }}</td>
                 <td>
-                    <a href="/remove/{{ item.product.nama }}" class="btn btn-danger btn-sm">Hapus</a>
+                    <a href="/remove_item/{{ item.product.nama }}" class="btn btn-danger btn-sm">Hapus</a>
                 </td>
             </tr>
             {% endfor %}

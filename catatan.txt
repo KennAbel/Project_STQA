@@ -1,0 +1,5 @@
+testing : 
+1. Unit Testing = python -m unittest test_models.py
+2. BDD testing (Interogation Testing) = behave
+3. Performace Testing = 2 terminal, terminal 1 run websitenya (python app.py), abis itu buka terminal 2 run locust (locust). urutan User = 100, user Second = 10, host = url websitenya
+4. Test fitur website
